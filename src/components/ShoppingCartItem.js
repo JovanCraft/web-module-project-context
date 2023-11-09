@@ -1,21 +1,21 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
 
-const Item = props => {
+const Item = ({ id, image, title, price }) => {
 
 	const { removeItem } = useContext(CartContext)
 	const handleRemove = () => {
-		removeItem(props.id)
+		removeItem(id)
 	}
 
 	return (
 		<div className="shopping-cart_item">
-			<img src={props.image} alt={`${props.title} book`} />
+			<img src={image} alt={`${title} book`} />
 
 
 			<div>
-				<h1>{props.title}</h1>
-				<p>$ {props.price}</p>
+				<h1>{title}</h1>
+				<p>$ {price}</p>
 				<button onClick={handleRemove}>Remove from cart</button>
 			</div>
 		</div>
